@@ -80,4 +80,17 @@ public class Liste
 
         return n;
     }
+
+    public Node removeFromTail()
+    {
+        if (isEmpty()){
+            return null;
+        }
+
+        Node n = tail;
+        tail.previous.next = null;
+        tail = tail.previous;
+
+        return n;
+    }
 }

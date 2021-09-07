@@ -58,6 +58,17 @@ class ListeTest {
 
         assertEquals("3", liste.removeFromHead().data);
 
+    }
 
+    @Test
+    void testRemoveFromTail() {
+
+        assertEquals(null, liste.removeFromTail());
+
+        liste.insertFromTail(new Node("3"));
+        liste.insertFromTail(new Node("2"));
+        liste.insertFromTail(new Node("1"));
+
+        assertEquals("1", liste.removeFromTail().data);
     }
 }
