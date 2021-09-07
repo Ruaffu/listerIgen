@@ -19,4 +19,22 @@ class ListeTest {
         liste.insertFromHead(new Node("viktor"));
         assertEquals(false, liste.isEmpty());
     }
+
+    @Test
+    void testPrintListFromHead() {
+        liste.insertFromHead(new Node("1"));
+        liste.insertFromHead(new Node("2"));
+        liste.insertFromHead(new Node("3"));
+
+        assertEquals("321", liste.printFromHead());
+    }
+
+    @Test
+    void testInsertFromTail() {
+        liste.insertFromTail(new Node("1"));
+        liste.insertFromTail(new Node("2"));
+        liste.insertFromTail(new Node("3"));
+
+        assertEquals("123", liste.printFromHead());
+    }
 }

@@ -24,4 +24,34 @@ public class Liste
 
     }
 
+    public String printFromHead() {
+        Node n = head;
+
+        String s = "";
+        if (isEmpty()){
+            return s;
+        }
+
+        while (n != null){
+
+            s += n.data;
+            n = n.next;
+
+        }
+        return s;
+    }
+
+    public Node insertFromTail(Node node) {
+        if (isEmpty()){
+            head = node;
+            tail = node;
+            return tail;
+        }
+
+        tail.next = node;
+        node.previous = tail;
+        tail = node;
+        return tail;
+
+    }
 }
