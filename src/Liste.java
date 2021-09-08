@@ -69,17 +69,17 @@ public class Liste
         return res;
     }
 
-    public Node removeFromHead() {
-        if (isEmpty()){
-            return null;
-        }
-
-        Node n = head;
-        head.next.previous = null;
-        head = head.next;
-
-        return n;
-    }
+//    public Node removeFromHead() {
+//        if (isEmpty()){
+//            return null;
+//        }
+//
+//        Node n = head;
+//        head.next.previous = null;
+//        head = head.next;
+//
+//        return n;
+//    }
 
     public Node removeFromTail()
     {
