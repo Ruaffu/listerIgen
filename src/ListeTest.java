@@ -152,7 +152,10 @@ class ListeTest {
 
     @Test
     void insertNodeByIndex() {
+        listeMedTal.insertNodeByIndex(2,new Node("5"));
+        assertEquals("35210", listeMedTal.printFromHead());
         listeMedTal.insertNodeByIndex(3,new Node("5"));
-        assertEquals("32510", listeMedTal.printFromHead());
+        assertEquals("355210", listeMedTal.printFromHead());
+
     }
 }
