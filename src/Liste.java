@@ -81,16 +81,113 @@ public class Liste
 //        return n;
 //    }
 
-    public Node removeFromTail()
+    public Node removeFromHead()
     {
+        Node node = new Node("");
         if (isEmpty()){
-            return null;
+            return node;
         }
 
-        Node n = tail;
+        if (head == tail){
+            node = head;
+            head = null;
+            tail = null;
+            return node;
+        }
+         node = head;
+         head = head.next;
+         head.previous.next = null;
+         head.previous = null;
+
+         return node;
+
+    }
+
+    public Node removeFromTail()
+    {
+        Node node = new Node("");
+        if (isEmpty()){
+            return node;
+        }
+
+        if (head == tail){
+            node = tail;
+            head = null;
+            tail = null;
+            return node;
+        }
+        node = tail;
         tail.previous.next = null;
         tail = tail.previous;
 
-        return n;
+        return node;
     }
+
+
+    public Node findNode(int i) {
+        int in = 0;
+        Node node = head;
+
+        while (node != null && in <= i){
+            in++;
+            if (in == i){
+                return node;
+            }
+            node = node.next;
+        }
+
+        return new Node("");
+    }
+
+    public Node removeNode(Node node){
+
+        if (head == node){
+            removeFromHead();
+        }
+
+        else if (tail == node){
+            removeFromTail();
+        }else {
+            node.previous.next = node.next;
+            node.next.previous = node.previous;
+        }
+        return node;
+    }
+
+    public Node findNodeByString(String s) {
+
+        Node node = head;
+
+        while (node != null){
+            if (node.data.equals(s)){
+                return node;
+            }
+            node = node.next;
+        }
+
+        return new Node("");
+    }
+
+    public void insertNodeByIndex(int index, Node n){
+        Node node = findNode(index);
+
+        if (head == node){
+            insertFromHead(n);
+        }
+        else if (tail == node){
+            insertFromTail(n);
+        }else{
+            n.next = node;
+            n.previous = node.previous;
+
+            node.previous.next = n;
+            node.previous = n;
+
+        }
+
+
+    }
+
+
+
 }

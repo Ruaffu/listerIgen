@@ -81,6 +81,16 @@ class ListeTest {
     @Test
     void removeFromHead() {
 
+        Node node = new Node("");
+        assertEquals(node.data, liste.removeFromHead().data);
+
+        Node testNode = new Node("4");
+        liste.insertFromHead(testNode);
+        assertEquals(testNode, liste.removeFromHead());
+        assertTrue(liste.isEmpty());
+
+        assertEquals("3", listeMedTal.removeFromHead().data);
+        assertEquals("210", listeMedTal.printFromHead());
 
     }
 
@@ -94,5 +104,55 @@ class ListeTest {
         liste.insertFromTail(new Node("1"));
 
         assertEquals("1", liste.removeFromTail().data);
+    }
+
+    @Test
+    void removeFromTail() {
+        Node node = new Node("");
+        assertEquals(node.data, liste.removeFromTail().data);
+
+        Node testNode = new Node("4");
+        liste.insertFromTail(testNode);
+        assertEquals(testNode, liste.removeFromTail());
+        assertTrue(liste.isEmpty());
+
+        assertEquals("0", listeMedTal.removeFromTail().data);
+        assertEquals("123", listeMedTal.printFromTail());
+    }
+
+    @Test
+    void findNode() {
+
+        liste.insertFromHead(new Node("1"));
+        liste.insertFromHead(new Node("2"));
+        liste.insertFromHead(new Node("3"));
+
+        assertEquals("3", liste.findNode(1).data);
+    }
+
+    @Test
+    void removeNode() {
+        liste.insertFromHead(new Node("1"));
+        liste.insertFromHead(new Node("2"));
+        liste.insertFromHead(new Node("3"));
+
+        liste.removeNode(liste.findNodeByString("1"));
+        assertEquals("32", liste.printFromHead());
+    }
+
+    @Test
+    void findNodeByString() {
+        liste.insertFromHead(new Node("1"));
+        liste.insertFromHead(new Node("2"));
+        liste.insertFromHead(new Node("3"));
+
+        assertEquals("2", liste.findNodeByString("2").data);
+
+    }
+
+    @Test
+    void insertNodeByIndex() {
+        listeMedTal.insertNodeByIndex(3,new Node("5"));
+        assertEquals("32510", listeMedTal.printFromHead());
     }
 }
